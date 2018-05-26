@@ -59,7 +59,7 @@ typedef struct zmienne Zm;   //definiuje nowy typ w c definiujemy zmienna typu p
 
 struct data //struktura zawierajaca dane 
 {
- double jd;                // pole struktury odwolanie do pola p1.x=
+ double jd;                // pole struktury odwolanie do pola p1.x= 
  double ps; 			// odczytany z pliku pri/sec 1/0
  double w;             	//dczytana pliku z UP waga
 };     
