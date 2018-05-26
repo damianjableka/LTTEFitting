@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for x in `ls -dR */`
+do
+echo $x
+cd $x
+u=`echo ${x:0:${#x}-1}`
+echo $u
+cp oc_lin_qr.eps ../wyniki/$u-lin.eps
+cd ..
+done

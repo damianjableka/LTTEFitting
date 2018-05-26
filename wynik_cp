@@ -1,0 +1,17 @@
+#!/bin/bash
+
+for x in `ls -dR */`
+do
+echo $x
+cd $x
+u=`echo ${x:0:${#x}-1}`
+echo $u
+cp rozklad ../wyniki/$u-rozklad.eps
+cp mmc.out ../wyniki/$u-mmc.out
+cp mmc.out ../wyniki/$u-mmc.out
+cp wykres ../wyniki/$u-wykres
+cp model ../wyniki/$u-model
+cp *_wynik.txt ../wyniki/$u-wynik.txt
+ls ../wyniki
+cd ..
+done

@@ -1,0 +1,9 @@
+#!/bin/bash
+echo " " > fmas.out
+for x in `ls -dR */`
+do
+echo $x
+g=`./fm3 $x/fmas.inp | tail -1`
+echo $g
+echo $x $g >>  fmas.out
+done
