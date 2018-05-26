@@ -29,7 +29,7 @@
  //20.03.2012 13:12:06 dodalem wypisanie na poczatku danych aby zobaczyc czy dobrze czyta
  //22.03.2012 12:17:16 zmienilem warunek konca na roznica chikw min i chikw max < Granica a możnaby jeszcze  zrobic chikw max > chikwmin(1+granica)
  //02.04.2012 13:17:42 dodalem rysowanie co jakis czas aktualnie co 30 zawerzen granic
- //02.04.2012 14:13:19 dodalem kolejny parametr w mcpar co ile ma drukowac wynik
+ //02.04.2012 14:13:19 dodalem kolejny parametr w mcpar co ile ma drukowac wynik 
  //03.04.2012 15:18:49 zmianilem ilosc przyjmowanych parametrow na >=4
  //03.04.2012 15:51:48 dodalem zapis calej bazy losowan, i jej odczyt jesli jest 5 argument jesli nie to pocztkowe losowania sa generowane
  //03.04.2012 15:52:25 dodalem zapis kopi parametrow poczatkowaych i nadpisywanie parametrow poczatkowych co iles zwerzen
