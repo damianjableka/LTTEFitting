@@ -1,0 +1,73 @@
+f(x)=fa*x+fb
+fa=-7e-6
+fb=-0.13
+fit [5000:10000] f(x) "wykres" u 1:7 via fa,fb 
+g(x)=ga*x+gb
+ga=+7e-6
+gb=-0.13
+fit [-3000:6000] g(x) "wykres" u 1:7 via ga,gb 
+h(x)=ha*x+hb
+ha=-7e-6
+hb=-0.13
+fit [-8000:-3000] h(x) "wykres" u 1:7 via ha,hb
+k(x)=ka*x+kb
+ka=-7e-6
+kb=-0.13
+fit [-15000:-5000] k(x) "wykres" u 1:7 via ka,kb  
+
+xkh=(kb-hb)/(ha-ka)
+xhg=(gb-hb)/(ha-ga)
+xgf=(gb-fb)/(fa-ga)
+u(x)=k(x)*(x<=xkh) + h(x)*(x>=xkh)*(x<xhg) +  g(x) * (x>=xhg)*(x<xgf) + f(x)*(x>=xgf)
+set term x11
+set xtics 
+ set lmargin 10
+ set rmargin 2
+set multiplot layout 2,1 scale 1,1 offset 0.5,0
+ set ylabel "dane - model"
+ set size 1,0.28
+ set xlabel "Epoka"
+ set origin 0.0,0.0
+ set bmargin 3
+ set tmargin 0
+ plot 'wykres' u 1:($7-u($1)) t "o-c2" w points pt 7, 'wykres' u 1:6
+
+ set size 1,0.70
+ set xlabel " "
+ set ylabel "O-C"
+ set origin 0.0,0.3
+ set bmargin 0
+ set tmargin 1
+  set format x ""
+ plot 'wykres' u 1:7 t "o-c" w points pt 7, u(x) t sprintf("a: %.2e, %.2e, %.2e, %.2e", ka, ha, ga, fa) w l
+set nomultiplot
+
+set term postscript landscape enhanced color lw 1 dashed 'Helvetica' 14
+set autoscale
+set output 'oc_lin_por.eps'
+
+set xtics 
+ set lmargin 10
+ set rmargin 2
+set multiplot layout 2,1 scale 1,1 offset 0.5,0
+ set ylabel "dane - model"
+ set size 1,0.28
+ set xlabel "Epoka"
+ set origin 0.0,0.0
+ set bmargin 3
+ set tmargin 0
+ plot 'wykres' u 1:($7-u($1)) t "o-c2" w points pt 7, 'wykres' u 1:6
+
+ set size 1,0.70
+ set xlabel " "
+ set ylabel "O-C"
+ set origin 0.0,0.3
+ set bmargin 0
+ set tmargin 1
+  set format x ""
+ plot 'wykres' u 1:7 t "o-c" w points pt 7, u(x) t sprintf("a: %.2e, %.2e, %.2e, %.2e", ka, ha, ga, fa) w l
+set nomultiplot
+stats 'wykres' u 1:6 name 'A'
+stats 'wykres' u 1:($7-u($1)) name 'B'
+reset
+

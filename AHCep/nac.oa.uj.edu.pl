@@ -1,0 +1,62 @@
+ set xtics 
+ set lmargin 10
+ set rmargin 2
+set multiplot
+ set ylabel "dane - model"
+ set size 1,0.2
+ set xlabel "Epoka"
+ set origin 0.0,0.0
+ set bmargin 3
+ set tmargin 0
+  plot  'wykres' u 1:6 t "dane-model", 0 w l
+ set size 1,0.4
+ set ylabel "O-C bez qE^2"
+ set xlabel " "
+ set origin 0.0,0.2
+ set bmargin 0
+ set tmargin 0
+  set format x ""
+  plot  'wykres' u 1:7 t "dane-q,p,r", 'model' u 1:4 w l t "LITE"
+ set size 1,0.4
+ set xlabel " "
+ set ylabel "O-C"
+ set origin 0.0,0.6
+ set bmargin 0
+ set tmargin 1
+  set format x ""
+plot 'wykres' u 1:2 t "dopasowanie", 'wykres' u 1:3:(1+log($5)) t "o-c" w points pt 7 ps variable, 'model' u 1:2 w l t "model", 'model' u 1:3 t "qE^2" w l
+set nomultiplot
+reset
+set term postscript landscape enhanced color lw 1 dashed 'Helvetica' 14
+set autoscale
+set output 'oc.eps'
+ set xtics 
+ set lmargin 10
+ set rmargin 2
+set multiplot
+ set ytic auto
+ set ylabel "dane - model"
+ set size 1,0.2
+ set xlabel "Epoka"
+ set origin 0.0,0.0
+ set bmargin 3
+ set tmargin 0
+  plot  'wykres' u 1:6 t "dane-model", 0 w l
+ set size 1,0.4
+ set ylabel "O-C bez qE^2"
+ set xlabel " "
+ set origin 0.0,0.2
+ set bmargin 0
+ set tmargin 0
+  set format x ""
+  plot  'wykres' u 1:7 t "dane-q,p,r", 'model' u 1:4 w l t "LITE"
+ set size 1,0.4
+ set xlabel " "
+ set ylabel "O-C"
+ set origin 0.0,0.6
+ set bmargin 0
+ set tmargin 1
+  set format x ""
+plot 'wykres' u 1:2 t "dopasowanie", 'wykres' u 1:3:(1+log($5)) t "o-c" w points pt 7 ps variable, 'model' u 1:2 w l t "model", 'model' u 1:3 t "qE^2" w l
+set nomultiplot
+reset

@@ -1,0 +1,1 @@
+plot  'wykres' u 1:7 t "dane-q,p,r", 'model' u 1:4 w l t "LITE"

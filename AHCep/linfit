@@ -1,0 +1,25 @@
+reset
+f(x)=fa*x+fb
+fa=-7e-6
+fb=-0.13
+fit [5000:10000] f(x) "wykres" u 1:3 via fa,fb 
+g(x)=ga*x+gb
+ga=+7e-6
+gb=-0.13
+fit [-3000:6000] g(x) "wykres" u 1:3 via ga,gb 
+h(x)=ha*x+hb
+ha=-7e-6
+hb=-0.13
+fit [-8000:-3000] h(x) "wykres" u 1:3 via ha,hb
+k(x)=ka*x+kb
+ka=-7e-6
+kb=-0.13
+fit [-15000:-5000] k(x) "wykres" u 1:3 via ka,kb  
+
+xkh=(kb-hb)/(ha-ka)
+xhg=(gb-hb)/(ha-ga)
+xgf=(gb-fb)/(fa-ga)
+
+plot 'wykres' u 1:3 t "o-c" w points pt 7, k(x)*(x<=xkh) + h(x)*(x>=xkh)*(x<xhg) +  g(x) * (x>=xhg)*(x<xgf) + f(x)*(x>=xgf)
+#plot 'wykres' u 1:3 t "o-c" w points pt 7, x < -2000 ? h(x) : x < 7000 ? g(x) : f(x)
+#plot 'wykres' u 1:3 t "o-c" w points pt 7, [-15000:-3000] f(x) w l, g(x) w l, h(x) w l
