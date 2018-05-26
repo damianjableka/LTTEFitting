@@ -1,0 +1,52 @@
+#! /bin/bash
+cd AHCep
+mmc35 MINAH.CEP par mcpar 1
+cd ..
+cd BOGEM
+mmc35 MINBO.GEM par mcpar 1
+cd ..
+cd CFTuc_150403
+mmc35 CFTUCmin par mcpar 0
+cd ..
+cd CFTuc_150403noq
+mmc35 CFTUCmin par mcpar 0
+cd ..
+cd IRCnc
+mmc35 MINIR.CNC par mcpar 1
+cd ..
+cd IVCas
+mmc35 MINIV.CAS par mcpar 1
+cd ..
+cd RWCap
+mmc35 MINRW.CAP par mcpar 1
+cd ..
+cd RWPer
+mmc35 MINRW.PER par mcpar 1
+cd ..
+cd RWTau
+mmc35 MINRW.TAU par mcpar 1
+cd ..
+cd RXGem
+mmc35 MINRX.GEM par mcpar 1
+cd ..
+cd RZAur
+mmc35 MINRZ.AUR par mcpar 1
+cd ..
+cd SWCyg
+mmc35 MINSW.CYG par mcpar 1
+cd ..
+cd SWOph
+mmc35 MINSW.OPH par mcpar 1
+cd ..
+cd SZCam
+mmc35 MINSZ.CAM par mcpar 1
+cd ..
+cd TLMi
+mmc35 MINT.LMI par mcpar 1
+cd ..
+cd TTAnd_ptma131227
+mmc35 MINTT.AND par mcpar 1
+cd ..
+cd CCHer
+mmc35 MINCC.HER par mcpar 1
+cd ..
