@@ -44,7 +44,7 @@ double u[97],c,cd,cm;
 int i97,j97;
 int test = FALSE;
 
-struct zmienne //struktura jej zaleta jest 
+struct zmienne //struktura jej zaleta jest  
 {
  char nazwa[50];                // pole struktury odwolanie do pola p1.x=
  double dol; 			//limit dolny
