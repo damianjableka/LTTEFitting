@@ -1,0 +1,1 @@
+plot  'wykres' u 1:6 t "dane-model", 0 w l

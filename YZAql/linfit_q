@@ -1,0 +1,31 @@
+reset
+set term postscript landscape enhanced color lw 1 dashed 'Helvetica' 14
+set autoscale
+set output 'oc_lin_q.eps'
+
+f(x)=fa*x+fb
+fa=7e-6
+fb=-0.13
+fit [1600:] f(x) "wykres" u 1:7 via fa,fb 
+g(x)=ga*x+gb
+ga=-7e-6
+gb=-0.13
+fit [500:2300] g(x) "wykres" u 1:7 via ga,gb 
+h(x)=ha*x+hb
+ha=7e-5
+hb=0.13
+fit [-700:500] h(x) "wykres" u 1:7 via ha,hb
+k(x)=ka*x+kb
+ka=-7e-6
+kb=-0.13
+fit [:-300] k(x) "wykres" u 1:7 via ka,kb  
+
+xkh=(kb-hb)/(ha-ka)
+xhg=(gb-hb)/(ha-ga)
+xgf=(gb-fb)/(fa-ga)
+
+plot 'wykres' u 1:7 t "o-c" w points pt 7, k(x)*(x<=xkh)+ h(x) *(x>=xkh)* (x<xhg) + g(x) *(x>=xhg)*(x<xgf) + f(x)*(x>=xgf)
+#plot 'wykres' u 1:7 t "o-c" w points pt 7, x < -2000 ? h(x) : x < 7000 ? g(x) : f(x)
+#plot 'wykres' u 1:7 t "o-c" w points pt 7, [-15000:-3000] f(x) w l, g(x) w l, h(x) w l
+set term x11
+plot 'wykres' u 1:7 t "o-c" w points pt 7,  k(x)*(x<=xkh)+ h(x) *(x>=xkh)* (x<xhg) + g(x) *(x>=xhg)*(x<xgf) + f(x)*(x>=xgf)
